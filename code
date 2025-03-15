@@ -1,0 +1,25 @@
+import random
+
+def roll_dice():
+    return random.randint(1, 6)
+
+def main():
+    players = ["Player 1", "Player 2", "Player 3", "Player 4"]
+    positions = {player: 0 for player in players}
+    winning_position = 30
+    
+    while True:
+        for player in players:
+            input(f"{player}, press Enter to roll the dice...")
+            roll = roll_dice()
+            print(f"{player} rolled a {roll}")
+            
+            positions[player] += roll
+            print(f"{player} is now at position {positions[player]}")
+            
+            if positions[player] >= winning_position:
+                print(f"{player} wins!")
+                return
+            
+if __name__ == "__main__":
+    main()
